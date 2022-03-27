@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/videoListFragment">
+
+    <fragment
+        android:id="@+id/videoListFragment"
+        android:name="com.thesomeshkumar.pixelvideos.ui.videos.VideoListFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_video_list">
+        <action
+            android:id="@+id/action_video_list_to_player"
+            app:destination="@id/videoPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.thesomeshkumar.pixelvideos.ui.videos.VideoPlayerFragment"
+        android:label="@string/title_player"
+        tools:layout="@layout/fragment_video_player">
+        <argument
+            android:name="videoUrl"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

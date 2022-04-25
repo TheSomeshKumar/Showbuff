@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/videoListFragment">
+    app:startDestination="@id/tvShowListFragment">
 
     <fragment
-        android:id="@+id/videoListFragment"
-        android:name="com.thesomeshkumar.pixelvideos.ui.videos.VideoListFragment"
+        android:id="@+id/tvShowListFragment"
+        android:name="com.thesomeshkumar.tmdb.ui.home.TvShowListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_video_list">
+        tools:layout="@layout/fragment_tv_show_list">
         <action
-            android:id="@+id/action_video_list_to_player"
+            android:id="@+id/action_show_list_to_player"
             app:destination="@id/videoPlayerFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoPlayerFragment"
-        android:name="com.thesomeshkumar.pixelvideos.ui.videos.VideoPlayerFragment"
+        android:name="com.thesomeshkumar.tmdb.ui.details.VideoPlayerFragment"
         android:label="@string/title_player"
         tools:layout="@layout/fragment_video_player">
         <argument

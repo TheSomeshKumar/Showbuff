@@ -8,8 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.thesomeshkumar.tmdb.data.common.onError
 import com.thesomeshkumar.tmdb.data.common.onLoading
 import com.thesomeshkumar.tmdb.data.common.onSuccess
@@ -36,15 +35,9 @@ class TvShowListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvPopularVideos.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvPopularVideos.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        val adapter = TvShowListAdapter(tvShows) { clickedMedia ->
-            findNavController().navigate(
-                TvShowListFragmentDirections.actionShowListToPlayer(
-                    videoUrl = clickedMedia.backdropPath
-                )
-            )
-        }
+        val adapter = TvShowListAdapter(tvShows) { }
 
         binding.rvPopularVideos.adapter = adapter
 

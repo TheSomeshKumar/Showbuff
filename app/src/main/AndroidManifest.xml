@@ -13,9 +13,7 @@
         android:theme="@style/Theme.TmdbArch">
         <activity
             android:name="com.thesomeshkumar.tmdb.ui.MainActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

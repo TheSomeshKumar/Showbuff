@@ -9,19 +9,6 @@
         android:id="@+id/tvShowListFragment"
         android:name="com.thesomeshkumar.tmdb.ui.home.TvShowListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_tv_show_list">
-        <action
-            android:id="@+id/action_show_list_to_player"
-            app:destination="@id/videoPlayerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/videoPlayerFragment"
-        android:name="com.thesomeshkumar.tmdb.ui.details.VideoPlayerFragment"
-        android:label="@string/title_player"
-        tools:layout="@layout/fragment_video_player">
-        <argument
-            android:name="videoUrl"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_tv_show_list"/>
 
 </navigation>

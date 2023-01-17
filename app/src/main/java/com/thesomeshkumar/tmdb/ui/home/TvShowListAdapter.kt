@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.thesomeshkumar.tmdb.R
 import com.thesomeshkumar.tmdb.databinding.RowTvShowBinding
 import com.thesomeshkumar.tmdb.ui.models.TvShow
 import com.thesomeshkumar.tmdb.util.Constants
@@ -13,8 +12,7 @@ class TvShowListAdapter(private val items: List<TvShow>, private val itemClick: 
     RecyclerView.Adapter<TvShowListAdapter.TvShowListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowListViewHolder {
-        val binding =
-            RowTvShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = RowTvShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TvShowListViewHolder(binding, itemClick)
     }
 
@@ -29,7 +27,9 @@ class TvShowListAdapter(private val items: List<TvShow>, private val itemClick: 
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: TvShow) {
             with(item) {
-                Glide.with(binding.ivThumb).load("${Constants.TMDB_POSTER_PATH_URL}${posterPath}").into(binding.ivThumb)
+                Glide.with(binding.ivThumb)
+                    .load("${Constants.TMDB_POSTER_PATH_URL}$backdropPath")
+                    .into(binding.ivThumb)
                 binding.tvName.text = name
                 binding.root.setOnClickListener { itemClick(this) }
             }

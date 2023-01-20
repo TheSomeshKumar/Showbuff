@@ -10,6 +10,7 @@ fun TVShowDTO.mapToUI() = TvShow(
     backdropPath = backdropPath ?: "N/A",
     overview = overview
 )
+
 fun MoviesDTO.mapToUI() = Movie(
     id = id,
     name = title,

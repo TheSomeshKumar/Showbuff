@@ -1,5 +1,10 @@
 # TMDB-MVVM-GUIDE
-Sample Project showcasing Android MVVM guideline based on [Guide to app architecture](https://developer.android.com/jetpack/guide)
+Sample Project based on Android MVVM guideline based on [Guide to app architecture](https://developer.android.com/jetpack/guide)
+
+Powered by
+
+<img width="260" alt="TMDB Logo" src="https://user-images.githubusercontent.com/13759258/213716452-837c217d-49ac-442c-b7eb-5f1a76dff614.png">
+
 
 ## Features 🕹
 - 100% Kotlin
@@ -18,3 +23,8 @@ Sample Project showcasing Android MVVM guideline based on [Guide to app architec
 - Use Material Theme 3 (MaterialYou)
 - Material Motion 
 - Paging 3
+
+
+## Screenshot 📱
+<img width="310" alt="App Home Screen" src="https://user-images.githubusercontent.com/13759258/213719394-56e7137d-624c-400f-8525-132c5eba37c1.png">
+

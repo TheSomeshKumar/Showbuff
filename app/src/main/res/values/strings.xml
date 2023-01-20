@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TMDB Arch</string>
-    <string name="title_home">Popular Shows</string>
+    <string name="title_shows">Shows</string>
+    <string name="title_movies">Movies</string>
 
     <string name="error_unexpected_message">Unexpected error occurred. We are working on it.</string>
     <string name="error_client_unexpected_message">Something technically is wrong. We are working on it.</string>

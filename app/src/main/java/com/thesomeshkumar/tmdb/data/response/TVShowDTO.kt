@@ -17,5 +17,3 @@ data class TVShowDTO(
     @SerializedName("name") val name: String,
     @SerializedName("original_name") val originalName: String
 )
-
-

@@ -16,11 +16,11 @@ object RequestErrorHandler {
             is HttpException -> {
                 handleHttpException(throwable)
             }
-            is IOException -> {
-                RemoteSourceException.Connection(R.string.error_network)
-            }
             is SocketTimeoutException -> {
                 RemoteSourceException.Timeout(R.string.error_timeout_message)
+            }
+            is IOException -> {
+                RemoteSourceException.Connection(R.string.error_network)
             }
             else -> {
                 RemoteSourceException.Unexpected(R.string.error_unexpected_message)

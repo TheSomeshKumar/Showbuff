@@ -1,4 +1,4 @@
-package com.thesomeshkumar.tmdb.ui.home
+package com.thesomeshkumar.tmdb.ui.home.tvshow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

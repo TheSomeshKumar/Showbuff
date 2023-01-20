@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tvShowListFragment"
-        android:name="com.thesomeshkumar.tmdb.ui.home.TvShowListFragment"
+        android:name="com.thesomeshkumar.tmdb.ui.home.tvshow.TvShowListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_tv_show_list"/>
 

@@ -17,4 +17,4 @@ Sample Project showcasing Android MVVM guideline based on [Guide to app architec
 - Tests
 - Use Material Theme 3 (MaterialYou)
 - Material Motion 
-- Pagging 3
+- Paging 3

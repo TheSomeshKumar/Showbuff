@@ -8,9 +8,5 @@
     <string name="error_timeout_message">Looks like the server is taking to long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while</string>
     <string name="error_network">Oops! Something went wrong on the server. We are working on it.</string>
     <string name="no_results_found">No results found!</string>
-    <string name="title_player">Player</string>
-    <string name="username">By %1$s </string>
-    <string name="buffering">Buffering…</string>
-    <string name="video_ended">Video Ended</string>
 
 </resources>

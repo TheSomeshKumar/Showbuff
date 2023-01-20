@@ -4,37 +4,39 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.thesomeshkumar.tmdb.data.common.Result
 import com.thesomeshkumar.tmdb.data.repository.TmdbRepository
+import com.thesomeshkumar.tmdb.ui.models.Movie
 import com.thesomeshkumar.tmdb.ui.models.TvShow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TvShowViewModel @Inject constructor(private var tmdbRepository: TmdbRepository) :
+class HomeViewModel @Inject constructor(private var tmdbRepository: TmdbRepository) :
     ViewModel() {
-    private var _isVideoFullScreen: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val isVideoFullScreen: StateFlow<Boolean> = _isVideoFullScreen.asStateFlow()
-
-    init {
-        getPopularTvShow()
-    }
 
     private val _resultTvShow = Channel<Result<List<TvShow>>>(Channel.BUFFERED)
     val resultTvShow: Flow<Result<List<TvShow>>> = _resultTvShow.receiveAsFlow()
 
-    private fun getPopularTvShow() {
+    private val _resultMovies = Channel<Result<List<Movie>>>(Channel.BUFFERED)
+    val resultMovies: Flow<Result<List<Movie>>> = _resultMovies.receiveAsFlow()
+
+    fun getPopularTvShow() {
         viewModelScope.launch(Dispatchers.IO) {
-            tmdbRepository.getPopularTvShow().collect {
+            tmdbRepository.getPopularTvShows().collect {
                 _resultTvShow.send(it)
             }
         }
     }
 
-    fun toggleVideoOrientation() {
-        _isVideoFullScreen.value = _isVideoFullScreen.value.not()
+    fun getPopularMovies() {
+        viewModelScope.launch(Dispatchers.IO) {
+            tmdbRepository.getPopularMovies().collect {
+                _resultMovies.send(it)
+            }
+        }
     }
-
 }

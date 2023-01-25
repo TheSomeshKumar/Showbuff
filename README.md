@@ -1,5 +1,5 @@
 # TMDB-MVVM-GUIDE
-Sample Project based on Android MVVM guideline based on [Guide to app architecture](https://developer.android.com/jetpack/guide)
+Sample Project based on [Recommended app architecture](https://developer.android.com/jetpack/guide)
 
 Powered by
 

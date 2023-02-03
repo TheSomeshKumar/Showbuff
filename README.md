@@ -10,19 +10,20 @@ Powered by
 - 100% Kotlin
 - Following [Recommended MVVM Architecture](https://developer.android.com/jetpack/guide)
 - [Coroutines](https://developer.android.com/kotlin/coroutines) - Coroutines provide us an easy way to do synchronous and asynchronous programming.
-- [Flow](https://developer.android.com/kotlin/flow) - Built on top of coroutines and is stream of data that can be computed asynchronously
+- [Flow](https://developer.android.com/kotlin/flow) & [StateFlow](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) - Flow is a type of coroutine that emits multiple values sequentially.
 - [Hilt](https://dagger.dev/hilt/) - Dependency Injection framework
 - [View Binding](https://developer.android.com/topic/libraries/view-binding) - View Binding
 - [Retrofit](https://github.com/square/retrofit) - Network client
-- [Material Components](https://github.com/material-components/material-components-android) - Material Design
+- [Material Components](https://github.com/material-components/material-components-android) & - [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
+
 
 
 ## Work In Progress 🚧
-- Jetpack Compose
-- Tests
+- ~~Material Motion~~ [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/c177f92968f341bd7a0592b83215fe2d753b561d) ✅ 
 - Use Material Theme 3 (MaterialYou)
-- Material Motion 
 - Paging 3
+- Tests
+- Jetpack Compose
 
 
 ## Screenshot 📱

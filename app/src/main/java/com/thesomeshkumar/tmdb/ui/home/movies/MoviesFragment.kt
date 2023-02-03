@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.thesomeshkumar.tmdb.data.common.onError
 import com.thesomeshkumar.tmdb.data.common.onLoading
@@ -38,7 +39,15 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = MoviesAdapter(movieList) { }
+        val adapter = MoviesAdapter(movieList) {
+            findNavController().navigate(
+                MoviesFragmentDirections.actionMoviesToDetail(
+                    backdropImageUrl = it.backdropPath,
+                    name = it.name,
+                    overview = it.overview
+                )
+            )
+        }
         binding.rvMovies.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {

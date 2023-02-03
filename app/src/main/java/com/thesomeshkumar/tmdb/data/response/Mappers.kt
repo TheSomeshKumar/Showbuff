@@ -8,7 +8,7 @@ fun TVShowDTO.mapToUI() = TvShow(
     name = name,
     posterPath = posterPath ?: "N/A",
     backdropPath = backdropPath ?: "N/A",
-    overview = overview
+    overview = overview.ifBlank { "N/A" }
 )
 
 fun MoviesDTO.mapToUI() = Movie(
@@ -16,5 +16,5 @@ fun MoviesDTO.mapToUI() = Movie(
     name = title,
     posterPath = posterPath ?: "N/A",
     backdropPath = backdropPath ?: "N/A",
-    overview = overview
+    overview = overview.ifBlank { "N/A" }
 )

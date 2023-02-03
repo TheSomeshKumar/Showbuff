@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.thesomeshkumar.tmdb.data.common.onError
@@ -39,13 +41,18 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = MoviesAdapter(movieList) {
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+
+        val adapter = MoviesAdapter(movieList) { itemView, movie ->
+            val transitionExtra = FragmentNavigatorExtras(itemView to movie.name)
             findNavController().navigate(
                 MoviesFragmentDirections.actionMoviesToDetail(
-                    backdropImageUrl = it.backdropPath,
-                    name = it.name,
-                    overview = it.overview
-                )
+                    backdropImageUrl = movie.backdropPath,
+                    name = movie.name,
+                    overview = movie.overview
+                ),
+                transitionExtra
             )
         }
         binding.rvMovies.adapter = adapter

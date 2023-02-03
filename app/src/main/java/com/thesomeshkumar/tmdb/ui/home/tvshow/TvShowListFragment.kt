@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.thesomeshkumar.tmdb.data.common.onError
@@ -39,13 +41,18 @@ class TvShowListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TvShowListAdapter(tvShowList) {
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+
+        val adapter = TvShowListAdapter(tvShowList) { itemView, tvShow ->
+            val transitionExtra = FragmentNavigatorExtras(itemView to tvShow.name)
             findNavController().navigate(
                 TvShowListFragmentDirections.actionTvShowToDetail(
-                    backdropImageUrl = it.backdropPath,
-                    name = it.name,
-                    overview = it.overview
-                )
+                    backdropImageUrl = tvShow.backdropPath,
+                    name = tvShow.name,
+                    overview = tvShow.overview
+                ),
+                transitionExtra
             )
         }
         binding.rvTvShows.adapter = adapter

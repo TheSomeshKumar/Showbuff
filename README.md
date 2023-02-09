@@ -26,6 +26,5 @@ Powered by
 - Jetpack Compose
 
 
-## Screenshot 📱
-<img width="310" alt="App Home Screen" src="https://user-images.githubusercontent.com/13759258/213719394-56e7137d-624c-400f-8525-132c5eba37c1.png">
-
+## Screenshot 📱 
+<img width="310" alt="M3 Dark Home Screen" src="https://user-images.githubusercontent.com/13759258/217895345-e633e053-0a20-49e2-a247-dfc575a0dcc1.png"><img width="310" alt="M3 Light Home Screen" src="https://user-images.githubusercontent.com/13759258/217895353-369ad9b1-ec82-4f13-b9a9-b97ff1d12c90.png">

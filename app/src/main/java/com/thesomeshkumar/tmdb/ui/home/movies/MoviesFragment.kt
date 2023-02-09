@@ -32,7 +32,7 @@ class MoviesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMoviesBinding.inflate(inflater, container, false)
         return binding.root
@@ -50,9 +50,9 @@ class MoviesFragment : Fragment() {
                 MoviesFragmentDirections.actionMoviesToDetail(
                     backdropImageUrl = movie.backdropPath,
                     name = movie.name,
-                    overview = movie.overview
+                    overview = movie.overview,
                 ),
-                transitionExtra
+                transitionExtra,
             )
         }
         binding.rvMovies.adapter = adapter

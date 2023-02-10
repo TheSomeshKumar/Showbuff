@@ -14,15 +14,15 @@ Powered by
 - [Hilt](https://dagger.dev/hilt/) - Dependency Injection framework
 - [View Binding](https://developer.android.com/topic/libraries/view-binding) - View Binding
 - [Retrofit](https://github.com/square/retrofit) - Network client
-- [Material Components](https://github.com/material-components/material-components-android) & - [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
+- [Material You](https://m3.material.io) & - [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
 
 
 
 ## Work In Progress 🚧
 - ~~Material Motion~~ [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/c177f92968f341bd7a0592b83215fe2d753b561d) ✅ 
 - ~~Use Material Theme 3 (MaterialYou)~~  [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/7e2314fe575e400f7390fb4d15ad43e1ef0039ff) ✅ 
-- Paging 3
 - Tests
+- Paging 3
 - Jetpack Compose
 
 

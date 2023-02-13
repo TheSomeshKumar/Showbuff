@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.thesomeshkumar.tmdb.databinding.RowTvShowBinding
-import com.thesomeshkumar.tmdb.ui.models.TvShow
+import com.thesomeshkumar.tmdb.ui.models.TvShowUI
 import com.thesomeshkumar.tmdb.util.Constants
 
 class TvShowListAdapter(
-    private val items: List<TvShow>,
-    private val itemClick: (View, TvShow) -> Unit
+    private val items: List<TvShowUI>,
+    private val itemClick: (View, TvShowUI) -> Unit
 ) :
     RecyclerView.Adapter<TvShowListAdapter.TvShowListViewHolder>() {
 
@@ -27,9 +27,9 @@ class TvShowListAdapter(
 
     class TvShowListViewHolder(
         private val binding: RowTvShowBinding,
-        val itemClick: (View, TvShow) -> Unit
+        val itemClick: (View, TvShowUI) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bindView(item: TvShow) {
+        fun bindView(item: TvShowUI) {
             with(item) {
                 Glide.with(binding.ivThumb)
                     .load("${Constants.TMDB_POSTER_PATH_URL}$backdropPath")

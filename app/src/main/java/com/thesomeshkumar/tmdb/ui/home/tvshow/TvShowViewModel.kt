@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.thesomeshkumar.tmdb.data.common.Result
 import com.thesomeshkumar.tmdb.data.repository.TmdbRepository
-import com.thesomeshkumar.tmdb.ui.models.TvShow
+import com.thesomeshkumar.tmdb.ui.models.TvShowUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,8 +17,8 @@ import javax.inject.Inject
 class TvShowViewModel @Inject constructor(private var tmdbRepository: TmdbRepository) :
     ViewModel() {
 
-    private val _resultTvShow = MutableStateFlow<Result<List<TvShow>>>(Result.Loading)
-    val resultTvShow: Flow<Result<List<TvShow>>> = _resultTvShow.asStateFlow()
+    private val _resultTvShow = MutableStateFlow<Result<List<TvShowUI>>>(Result.Loading)
+    val resultTvShow: Flow<Result<List<TvShowUI>>> = _resultTvShow.asStateFlow()
 
     init {
         getPopularTvShow()

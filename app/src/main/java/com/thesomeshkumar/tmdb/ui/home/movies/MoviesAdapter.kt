@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.thesomeshkumar.tmdb.databinding.RowMovieBinding
-import com.thesomeshkumar.tmdb.ui.models.Movie
+import com.thesomeshkumar.tmdb.ui.models.MovieUI
 import com.thesomeshkumar.tmdb.util.Constants
 
-class MoviesAdapter(private val items: List<Movie>, private val itemClick: (View, Movie) -> Unit) :
+class MoviesAdapter(private val items: List<MovieUI>, private val itemClick: (View, MovieUI) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -24,9 +24,9 @@ class MoviesAdapter(private val items: List<Movie>, private val itemClick: (View
 
     class MoviesViewHolder(
         private val binding: RowMovieBinding,
-        val itemClick: (View, Movie) -> Unit
+        val itemClick: (View, MovieUI) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bindView(item: Movie) {
+        fun bindView(item: MovieUI) {
             with(item) {
                 Glide.with(binding.ivThumb)
                     .load("${Constants.TMDB_POSTER_PATH_URL}$backdropPath")

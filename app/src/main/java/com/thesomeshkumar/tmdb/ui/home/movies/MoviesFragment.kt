@@ -17,7 +17,7 @@ import com.thesomeshkumar.tmdb.data.common.onError
 import com.thesomeshkumar.tmdb.data.common.onLoading
 import com.thesomeshkumar.tmdb.data.common.onSuccess
 import com.thesomeshkumar.tmdb.databinding.FragmentMoviesBinding
-import com.thesomeshkumar.tmdb.ui.models.Movie
+import com.thesomeshkumar.tmdb.ui.models.MovieUI
 import com.thesomeshkumar.tmdb.util.autoCleared
 import com.thesomeshkumar.tmdb.util.getError
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 class MoviesFragment : Fragment() {
     private val viewModel: MoviesViewModel by viewModels()
     private var binding: FragmentMoviesBinding by autoCleared()
-    private val movieList = mutableListOf<Movie>()
+    private val movieList = mutableListOf<MovieUI>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -1,5 +1,5 @@
 # TMDB-MVVM-GUIDE
-Sample Project based on [Recommended app architecture](https://developer.android.com/jetpack/guide)
+Plaground project based on [Recommended app architecture](https://developer.android.com/jetpack/guide)
 
 Powered by
 
@@ -22,7 +22,6 @@ Powered by
 - ~~Material Motion~~ [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/c177f92968f341bd7a0592b83215fe2d753b561d) ✅ 
 - ~~Use Material Theme 3 (MaterialYou)~~  [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/7e2314fe575e400f7390fb4d15ad43e1ef0039ff) ✅ 
 - Tests
-- Paging 3
 - Jetpack Compose
 
 

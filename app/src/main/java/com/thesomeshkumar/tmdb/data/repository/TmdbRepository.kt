@@ -1,7 +1,6 @@
 package com.thesomeshkumar.tmdb.data.repository
 
 import com.thesomeshkumar.tmdb.data.common.Result
-import com.thesomeshkumar.tmdb.data.common.onFlowStarts
 import com.thesomeshkumar.tmdb.data.datasource.remote.RemoteDataSource
 import com.thesomeshkumar.tmdb.data.response.mapToUI
 import com.thesomeshkumar.tmdb.ui.models.MovieUI
@@ -17,29 +16,23 @@ class TmdbRepository @Inject constructor(
         return flow {
             remoteDataSource.getPopularTvShows().run {
                 when (this) {
-                    is Result.Success -> {
-                        emit(Result.Success(response.results.map { it.mapToUI() }))
-                    }
-                    is Result.Error -> {
-                        emit(Result.Error(exception))
-                    }
+                    is Result.Loading -> emit(Result.Loading)
+                    is Result.Success -> emit(Result.Success(response.results.map { it.mapToUI() }))
+                    is Result.Error -> emit(Result.Error(exception))
                 }
             }
-        }.onFlowStarts()
+        }
     }
 
     suspend fun getPopularMovies(): Flow<Result<List<MovieUI>>> {
         return flow {
             remoteDataSource.getPopularMovies().run {
                 when (this) {
-                    is Result.Success -> {
-                        emit(Result.Success(response.results.map { it.mapToUI() }))
-                    }
-                    is Result.Error -> {
-                        emit(Result.Error(exception))
-                    }
+                    is Result.Loading -> emit(Result.Loading)
+                    is Result.Success -> emit(Result.Success(response.results.map { it.mapToUI() }))
+                    is Result.Error -> emit(Result.Error(exception))
                 }
             }
-        }.onFlowStarts()
+        }
     }
 }

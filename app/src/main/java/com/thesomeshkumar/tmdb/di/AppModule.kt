@@ -1,5 +1,6 @@
 package com.thesomeshkumar.tmdb.di
 
+import com.thesomeshkumar.tmdb.BuildConfig
 import com.thesomeshkumar.tmdb.data.datasource.remote.ApiService
 import com.thesomeshkumar.tmdb.data.datasource.remote.RemoteDataSourceImpl
 import com.thesomeshkumar.tmdb.data.repository.TmdbRepository
@@ -8,14 +9,14 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -52,7 +53,7 @@ object AppModule {
                 val originalHttpUrl: HttpUrl = original.url
 
                 val url = originalHttpUrl.newBuilder()
-                    .addQueryParameter("api_key", Constants.TMDB_KEY)
+                    .addQueryParameter("api_key", BuildConfig.TMDB_KEY)
                     .build()
 
                 val requestBuilder: Request.Builder = original.newBuilder()

@@ -3,7 +3,6 @@ package com.thesomeshkumar.tmdb
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.color.DynamicColors
-import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

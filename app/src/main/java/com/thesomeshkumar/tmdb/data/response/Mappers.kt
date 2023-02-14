@@ -1,9 +1,11 @@
 package com.thesomeshkumar.tmdb.data.response // ktlint-disable filename
 
+import com.thesomeshkumar.tmdb.data.response.MovieDTO.Movie
+import com.thesomeshkumar.tmdb.data.response.TVShowDTO.TVShow
 import com.thesomeshkumar.tmdb.ui.models.MovieUI
 import com.thesomeshkumar.tmdb.ui.models.TvShowUI
 
-fun TVShowDTO.mapToUI() = TvShowUI(
+fun TVShow.mapToUI() = TvShowUI(
     id = id,
     name = name,
     posterPath = posterPath ?: "N/A",
@@ -11,7 +13,7 @@ fun TVShowDTO.mapToUI() = TvShowUI(
     overview = overview.ifBlank { "N/A" }
 )
 
-fun MoviesDTO.mapToUI() = MovieUI(
+fun Movie.mapToUI() = MovieUI(
     id = id,
     name = title,
     posterPath = posterPath ?: "N/A",

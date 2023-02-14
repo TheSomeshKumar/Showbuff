@@ -6,9 +6,9 @@ import com.thesomeshkumar.tmdb.data.datasource.remote.RemoteDataSource
 import com.thesomeshkumar.tmdb.data.response.mapToUI
 import com.thesomeshkumar.tmdb.ui.models.MovieUI
 import com.thesomeshkumar.tmdb.ui.models.TvShowUI
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
 class TmdbRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource
@@ -18,7 +18,7 @@ class TmdbRepository @Inject constructor(
             remoteDataSource.getPopularTvShows().run {
                 when (this) {
                     is Result.Success -> {
-                        emit(Result.Success(response.map { it.mapToUI() }))
+                        emit(Result.Success(response.results.map { it.mapToUI() }))
                     }
                     is Result.Error -> {
                         emit(Result.Error(exception))
@@ -33,7 +33,7 @@ class TmdbRepository @Inject constructor(
             remoteDataSource.getPopularMovies().run {
                 when (this) {
                     is Result.Success -> {
-                        emit(Result.Success(response.map { it.mapToUI() }))
+                        emit(Result.Success(response.results.map { it.mapToUI() }))
                     }
                     is Result.Error -> {
                         emit(Result.Error(exception))

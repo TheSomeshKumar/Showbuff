@@ -7,7 +7,7 @@ import com.thesomeshkumar.tmdb.util.Constants
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface APIs {
+interface ApiService {
     @GET(Constants.POPULAR_TV_SHOW_URL)
     suspend fun getPopularTvShows(): Response<BaseResponse<TVShowDTO>>
 

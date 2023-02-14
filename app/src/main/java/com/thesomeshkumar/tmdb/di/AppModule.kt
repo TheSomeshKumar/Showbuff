@@ -1,6 +1,6 @@
 package com.thesomeshkumar.tmdb.di
 
-import com.thesomeshkumar.tmdb.data.datasource.remote.APIs
+import com.thesomeshkumar.tmdb.data.datasource.remote.ApiService
 import com.thesomeshkumar.tmdb.data.datasource.remote.RemoteDataSourceImpl
 import com.thesomeshkumar.tmdb.data.repository.TmdbRepository
 import com.thesomeshkumar.tmdb.util.Constants
@@ -72,14 +72,14 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApiServices(retrofitClient: Retrofit): APIs {
-        return retrofitClient.create(APIs::class.java)
+    fun provideApiServices(retrofitClient: Retrofit): ApiService {
+        return retrofitClient.create(ApiService::class.java)
     }
 
     @Provides
     @Singleton
     fun provideVideoRepository(
-        api: APIs
+        api: ApiService
     ): TmdbRepository {
         val remoteDataSourceImpl = RemoteDataSourceImpl(api)
         return TmdbRepository(remoteDataSourceImpl)

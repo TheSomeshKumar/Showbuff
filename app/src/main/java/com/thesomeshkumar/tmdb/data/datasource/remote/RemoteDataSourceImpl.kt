@@ -7,7 +7,7 @@ import com.thesomeshkumar.tmdb.data.common.Result
 import com.thesomeshkumar.tmdb.data.response.MoviesDTO
 import com.thesomeshkumar.tmdb.data.response.TVShowDTO
 
-class RemoteDataSourceImpl(private val apis: APIs) : RemoteDataSource {
+class RemoteDataSourceImpl(private val apis: ApiService) : RemoteDataSource {
     override suspend fun getPopularTvShows(): Result<List<TVShowDTO>> {
         return try {
             val result = apis.getPopularTvShows()

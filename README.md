@@ -19,11 +19,18 @@ Powered by
 
 
 ## Work In Progress 🚧
-- ~~Material Motion~~ [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/c177f92968f341bd7a0592b83215fe2d753b561d) ✅ 
-- ~~Use Material Theme 3 (MaterialYou)~~  [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/7e2314fe575e400f7390fb4d15ad43e1ef0039ff) ✅ 
+- ~~Material Motion~~ [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/c177f92968f341bd7a0592b83215fe2d753b561d) ✅
+- ~~Use Material Theme 3 (MaterialYou)~~  [Done](https://github.com/TheSomeshKumar/TMDB-MVVM-ARCH/commit/7e2314fe575e400f7390fb4d15ad43e1ef0039ff) ✅
 - Tests
 - Jetpack Compose
 
 
-## Screenshot 📱 
+## Screenshot 📱
 <img width="310" alt="M3 Dark Home Screen" src="https://user-images.githubusercontent.com/13759258/217895345-e633e053-0a20-49e2-a247-dfc575a0dcc1.png"><img width="310" alt="M3 Light Home Screen" src="https://user-images.githubusercontent.com/13759258/217895353-369ad9b1-ec82-4f13-b9a9-b97ff1d12c90.png">
+
+
+### How to build on your environment
+Create an API key on [The Movie DB](https://www.themoviedb.org)'s and add in your local `local.properties` file like this
+```
+TMDB_KEY=<REPLACE_WITH_YOUR_API_KEY>
+```

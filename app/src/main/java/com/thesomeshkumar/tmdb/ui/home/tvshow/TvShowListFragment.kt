@@ -17,7 +17,6 @@ import com.thesomeshkumar.tmdb.data.common.onError
 import com.thesomeshkumar.tmdb.data.common.onLoading
 import com.thesomeshkumar.tmdb.data.common.onSuccess
 import com.thesomeshkumar.tmdb.databinding.FragmentTvShowListBinding
-import com.thesomeshkumar.tmdb.ui.models.TvShowUI
 import com.thesomeshkumar.tmdb.util.autoCleared
 import com.thesomeshkumar.tmdb.util.getError
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +26,6 @@ import kotlinx.coroutines.launch
 class TvShowListFragment : Fragment() {
     private val viewModel: TvShowViewModel by viewModels()
     private var binding: FragmentTvShowListBinding by autoCleared()
-    private val tvShowList = mutableListOf<TvShowUI>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +42,7 @@ class TvShowListFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
-        val adapter = TvShowListAdapter(tvShowList) { itemView, tvShow ->
+        val adapter = TvShowListAdapter { itemView, tvShow ->
             val transitionExtra = FragmentNavigatorExtras(itemView to tvShow.name)
             findNavController().navigate(
                 TvShowListFragmentDirections.actionTvShowToDetail(
@@ -64,9 +62,7 @@ class TvShowListFragment : Fragment() {
                         binding.progressIndicator.show()
                     }.onSuccess {
                         binding.progressIndicator.hide()
-                        tvShowList.clear()
-                        tvShowList.addAll(it)
-                        adapter.notifyDataSetChanged()
+                        adapter.differ.submitList(it)
                     }.onError { error ->
                         MaterialAlertDialogBuilder(requireContext())
                             .setMessage(error.getError(requireContext()))

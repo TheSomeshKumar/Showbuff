@@ -17,7 +17,6 @@ import com.thesomeshkumar.tmdb.data.common.onError
 import com.thesomeshkumar.tmdb.data.common.onLoading
 import com.thesomeshkumar.tmdb.data.common.onSuccess
 import com.thesomeshkumar.tmdb.databinding.FragmentMoviesBinding
-import com.thesomeshkumar.tmdb.ui.models.MovieUI
 import com.thesomeshkumar.tmdb.util.autoCleared
 import com.thesomeshkumar.tmdb.util.getError
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +26,6 @@ import kotlinx.coroutines.launch
 class MoviesFragment : Fragment() {
     private val viewModel: MoviesViewModel by viewModels()
     private var binding: FragmentMoviesBinding by autoCleared()
-    private val movieList = mutableListOf<MovieUI>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +42,7 @@ class MoviesFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
-        val adapter = MoviesAdapter(movieList) { itemView, movie ->
+        val adapter = MoviesAdapter() { itemView, movie ->
             val transitionExtra = FragmentNavigatorExtras(itemView to movie.name)
             findNavController().navigate(
                 MoviesFragmentDirections.actionMoviesToDetail(
@@ -64,9 +62,7 @@ class MoviesFragment : Fragment() {
                         binding.progressIndicator.show()
                     }.onSuccess {
                         binding.progressIndicator.hide()
-                        movieList.clear()
-                        movieList.addAll(it)
-                        adapter.notifyDataSetChanged()
+                        adapter.differ.submitList(it.toMutableList())
                     }.onError { error ->
                         MaterialAlertDialogBuilder(requireContext())
                             .setMessage(error.getError(requireContext()))

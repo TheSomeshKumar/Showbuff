@@ -3,14 +3,17 @@ package com.thesomeshkumar.tmdb.ui.home.movies
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.thesomeshkumar.tmdb.databinding.RowMovieBinding
 import com.thesomeshkumar.tmdb.ui.models.MovieUI
-import com.thesomeshkumar.tmdb.util.Constants
+import com.thesomeshkumar.tmdb.util.toFullPosterUrl
 
-class MoviesAdapter(private val items: List<MovieUI>, private val itemClick: (View, MovieUI) -> Unit) :
-    RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+class MoviesAdapter(
+    private val itemClick: (View, MovieUI) -> Unit
+) : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val binding = RowMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,9 +21,9 @@ class MoviesAdapter(private val items: List<MovieUI>, private val itemClick: (Vi
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) =
-        holder.bindView(items[position])
+        holder.bindView(differ.currentList[position])
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = differ.currentList.size
 
     class MoviesViewHolder(
         private val binding: RowMovieBinding,
@@ -29,7 +32,7 @@ class MoviesAdapter(private val items: List<MovieUI>, private val itemClick: (Vi
         fun bindView(item: MovieUI) {
             with(item) {
                 Glide.with(binding.ivThumb)
-                    .load("${Constants.TMDB_POSTER_PATH_URL}$backdropPath")
+                    .load(backdropPath.toFullPosterUrl())
                     .into(binding.ivThumb)
                 binding.tvName.text = name
                 binding.root.transitionName = name
@@ -37,4 +40,16 @@ class MoviesAdapter(private val items: List<MovieUI>, private val itemClick: (Vi
             }
         }
     }
+
+    private val differCallback = object : DiffUtil.ItemCallback<MovieUI>() {
+        override fun areItemsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    val differ = AsyncListDiffer(this, differCallback)
 }

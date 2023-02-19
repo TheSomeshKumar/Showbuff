@@ -13,3 +13,5 @@ fun RemoteSourceException.getError(context: Context): String {
         else -> context.getString(R.string.error_unexpected_message)
     }
 }
+
+fun String.toFullPosterUrl(): String = Constants.TMDB_POSTER_PATH_URL + this

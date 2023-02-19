@@ -19,8 +19,7 @@ Powered by
 - [Hilt](https://dagger.dev/hilt/) - Dependency Injection framework
 - [View Binding](https://developer.android.com/topic/libraries/view-binding) - View Binding
 - [Retrofit](https://github.com/square/retrofit) - Network client
-- [Material You](https://m3.material.io) &
-  - [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
+- [Material You](https://m3.material.io) & [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
 
 ## Work In Progress 🚧
 

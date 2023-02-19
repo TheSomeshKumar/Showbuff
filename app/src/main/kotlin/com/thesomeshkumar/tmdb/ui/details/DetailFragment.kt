@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide
 import com.google.android.material.transition.MaterialContainerTransform
 import com.thesomeshkumar.tmdb.R
 import com.thesomeshkumar.tmdb.databinding.FragmentDetailBinding
-import com.thesomeshkumar.tmdb.util.Constants
 import com.thesomeshkumar.tmdb.util.autoCleared
+import com.thesomeshkumar.tmdb.util.toFullPosterUrl
 
 class DetailFragment : Fragment() {
     private val args: DetailFragmentArgs by navArgs()
@@ -24,6 +24,7 @@ class DetailFragment : Fragment() {
         val transformation: MaterialContainerTransform =
             MaterialContainerTransform(requireContext(), true).apply {
                 fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+                fadeProgressThresholds = MaterialContainerTransform.ProgressThresholds(0.0f, 0.01f)
                 drawingViewId = R.id.nav_host
                 scrimColor = Color.TRANSPARENT
             }
@@ -45,7 +46,7 @@ class DetailFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = args.name
         binding.tvOverview.text = args.overview
         Glide.with(this)
-            .load("${Constants.TMDB_POSTER_PATH_URL}${args.backdropImageUrl}")
+            .load(args.backdropImageUrl.toFullPosterUrl())
             .into(binding.ivBackdrop)
     }
 }

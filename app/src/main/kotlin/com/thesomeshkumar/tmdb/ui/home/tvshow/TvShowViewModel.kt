@@ -6,12 +6,12 @@ import com.thesomeshkumar.tmdb.data.common.Result
 import com.thesomeshkumar.tmdb.data.repository.TmdbRepository
 import com.thesomeshkumar.tmdb.ui.models.TvShowUI
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 class TvShowViewModel @Inject constructor(private var tmdbRepository: TmdbRepository) :

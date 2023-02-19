@@ -20,10 +20,10 @@
 
         <TextView
             android:id="@+id/tvOverview"
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/normal_padding"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             app:layout_constraintTop_toBottomOf="@id/ivBackdrop"
             tools:text="@tools:sample/lorem/random" />
 

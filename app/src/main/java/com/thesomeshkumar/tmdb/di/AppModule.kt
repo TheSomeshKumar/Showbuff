@@ -44,10 +44,6 @@ object AppModule {
             .addInterceptor { chain ->
                 val original = chain.request()
                     .newBuilder()
-//                    .addHeader(
-//                        "Authorization",
-//                        "Bearer ${Constants.TMDB_KEY}"
-//                    )
                     .build()
 
                 val originalHttpUrl: HttpUrl = original.url

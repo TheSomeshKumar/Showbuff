@@ -1,6 +1,6 @@
 # TMDB-MVVM-GUIDE
 
-Plaground project based
+Playground project based
 on [Recommended app architecture](https://developer.android.com/jetpack/guide)
 
 Powered by

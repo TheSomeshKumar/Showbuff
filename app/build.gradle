@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.thesomeshkumar.tmdbarch"
+        applicationId "com.thesomeshkumar.showbuff"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -40,7 +40,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    namespace 'com.thesomeshkumar.tmdb'
+    namespace 'com.thesomeshkumar.showbuff'
 }
 
 dependencies {

@@ -1,31 +1,31 @@
 <resources>
 
-    <style name="TmdbArchAppTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/tmdb_color_dark_primary</item>
-        <item name="colorOnPrimary">@color/tmdb_color_dark_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/tmdb_color_dark_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/tmdb_color_dark_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/tmdb_color_dark_secondary</item>
-        <item name="colorOnSecondary">@color/tmdb_color_dark_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/tmdb_color_dark_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/tmdb_color_dark_onSecondaryContainer</item>
-        <item name="colorTertiary">@color/tmdb_color_dark_tertiary</item>
-        <item name="colorOnTertiary">@color/tmdb_color_dark_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/tmdb_color_dark_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/tmdb_color_dark_onTertiaryContainer</item>
-        <item name="colorError">@color/tmdb_color_dark_error</item>
-        <item name="colorErrorContainer">@color/tmdb_color_dark_errorContainer</item>
-        <item name="colorOnError">@color/tmdb_color_dark_onError</item>
-        <item name="colorOnErrorContainer">@color/tmdb_color_dark_onErrorContainer</item>
-        <item name="android:colorBackground">@color/tmdb_color_dark_background</item>
-        <item name="colorOnBackground">@color/tmdb_color_dark_onBackground</item>
-        <item name="colorSurface">@color/tmdb_color_dark_surface</item>
-        <item name="colorOnSurface">@color/tmdb_color_dark_onSurface</item>
-        <item name="colorSurfaceVariant">@color/tmdb_color_dark_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/tmdb_color_dark_onSurfaceVariant</item>
-        <item name="colorOutline">@color/tmdb_color_dark_outline</item>
-        <item name="colorOnSurfaceInverse">@color/tmdb_color_dark_inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/tmdb_color_dark_inverseSurface</item>
-        <item name="colorPrimaryInverse">@color/tmdb_color_dark_inversePrimary</item>
+    <style name="ShowbuffAppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/showbuff_color_dark_primary</item>
+        <item name="colorOnPrimary">@color/showbuff_color_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/showbuff_color_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/showbuff_color_dark_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/showbuff_color_dark_secondary</item>
+        <item name="colorOnSecondary">@color/showbuff_color_dark_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/showbuff_color_dark_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/showbuff_color_dark_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/showbuff_color_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/showbuff_color_dark_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/showbuff_color_dark_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/showbuff_color_dark_onTertiaryContainer</item>
+        <item name="colorError">@color/showbuff_color_dark_error</item>
+        <item name="colorErrorContainer">@color/showbuff_color_dark_errorContainer</item>
+        <item name="colorOnError">@color/showbuff_color_dark_onError</item>
+        <item name="colorOnErrorContainer">@color/showbuff_color_dark_onErrorContainer</item>
+        <item name="android:colorBackground">@color/showbuff_color_dark_background</item>
+        <item name="colorOnBackground">@color/showbuff_color_dark_onBackground</item>
+        <item name="colorSurface">@color/showbuff_color_dark_surface</item>
+        <item name="colorOnSurface">@color/showbuff_color_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/showbuff_color_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/showbuff_color_dark_onSurfaceVariant</item>
+        <item name="colorOutline">@color/showbuff_color_dark_outline</item>
+        <item name="colorOnSurfaceInverse">@color/showbuff_color_dark_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/showbuff_color_dark_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/showbuff_color_dark_inversePrimary</item>
     </style>
 </resources>

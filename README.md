@@ -1,4 +1,4 @@
-# TMDB-MVVM-GUIDE
+# Showbuff
 
 Playground project based
 on [Recommended app architecture](https://developer.android.com/jetpack/guide)

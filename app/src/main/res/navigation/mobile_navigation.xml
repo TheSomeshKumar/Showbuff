@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/movies_fragment"
-        android:name="com.thesomeshkumar.tmdb.ui.home.movies.MoviesFragment"
+        android:name="com.thesomeshkumar.showbuff.ui.home.movies.MoviesFragment"
         android:label="@string/title_movies"
         tools:layout="@layout/fragment_movies">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/tv_show_fragment"
-        android:name="com.thesomeshkumar.tmdb.ui.home.tvshow.TvShowListFragment"
+        android:name="com.thesomeshkumar.showbuff.ui.home.tvshow.TvShowListFragment"
         android:label="@string/title_shows"
         tools:layout="@layout/fragment_tv_show_list">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/detail_fragment"
-        android:name="com.thesomeshkumar.tmdb.ui.details.DetailFragment"
+        android:name="com.thesomeshkumar.showbuff.ui.details.DetailFragment"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="backdrop_image_url"

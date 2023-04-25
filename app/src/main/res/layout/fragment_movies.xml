@@ -22,6 +22,6 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         tools:context=".ui.home.movies.MoviesFragment"
-        tools:listitem="@layout/row_tv_show" />
+        tools:listitem="@layout/row_movie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

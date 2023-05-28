@@ -2,6 +2,8 @@ package com.thesomeshkumar.showbuff.data.response
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import com.thesomeshkumar.showbuff.data.response.MovieDTO.Movie
+import com.thesomeshkumar.showbuff.ui.models.HomeMediaUI
 
 data class MovieDTO(
     @SerializedName("page") val page: Int,
@@ -27,3 +29,11 @@ data class MovieDTO(
         @SerializedName("vote_count") val voteCount: Int
     )
 }
+
+fun Movie.mapToUI() = HomeMediaUI(
+    id = id,
+    name = title,
+    posterPath = posterPath ?: "N/A",
+    backdropPath = backdropPath ?: "N/A",
+    overview = overview.ifBlank { "N/A" }
+)

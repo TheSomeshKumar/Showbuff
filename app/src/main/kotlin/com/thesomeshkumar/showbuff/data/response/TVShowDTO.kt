@@ -2,6 +2,8 @@ package com.thesomeshkumar.showbuff.data.response
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import com.thesomeshkumar.showbuff.data.response.TVShowDTO.TVShow
+import com.thesomeshkumar.showbuff.ui.models.HomeMediaUI
 
 data class TVShowDTO(
     @SerializedName("page") val page: Int,
@@ -24,3 +26,11 @@ data class TVShowDTO(
         @SerializedName("original_name") val originalName: String
     )
 }
+
+fun TVShow.mapToUI() = HomeMediaUI(
+    id = id,
+    name = name,
+    posterPath = posterPath ?: "N/A",
+    backdropPath = backdropPath ?: "N/A",
+    overview = overview.ifBlank { "N/A" }
+)

@@ -39,10 +39,10 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postponeEnterTransition()
-        view.doOnPreDraw { startPostponedEnterTransition() }
+//        postponeEnterTransition()
+//        view.doOnPreDraw { startPostponedEnterTransition() }
 
-        val adapter = MoviesAdapter() { itemView, movie ->
+        val adapter = MoviesAdapter { itemView, movie ->
             val transitionExtra = FragmentNavigatorExtras(itemView to movie.name)
             findNavController().navigate(
                 MoviesFragmentDirections.actionMoviesToDetail(
@@ -55,19 +55,50 @@ class MoviesFragment : Fragment() {
         }
         binding.rvMovies.adapter = adapter
 
+        val carouselAdapter = CarouselAdapter { itemView, movie ->
+            val transitionExtra = FragmentNavigatorExtras(itemView to movie.name)
+            findNavController().navigate(
+                MoviesFragmentDirections.actionMoviesToDetail(
+                    backdropImageUrl = movie.backdropPath,
+                    name = movie.name,
+                    overview = movie.overview
+                ),
+                transitionExtra
+            )
+        }
+        binding.rvCarousel.adapter = carouselAdapter
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.resultMovies.collect { response ->
-                    response.onLoading {
-                        binding.progressIndicator.show()
-                    }.onSuccess {
-                        binding.progressIndicator.hide()
-                        adapter.differ.submitList(it.toMutableList())
-                    }.onError { error ->
-                        MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(error.getError(requireContext()))
-                            .setPositiveButton(getString(android.R.string.ok), null).show()
-                        binding.progressIndicator.hide()
+                launch {
+                    viewModel.popularMovies.collect { response ->
+                        response.onLoading {
+                            binding.progressIndicator.show()
+                        }.onSuccess {
+                            binding.progressIndicator.hide()
+                            adapter.differ.submitList(it.toMutableList())
+                        }.onError { error ->
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setMessage(error.getError(requireContext()))
+                                .setPositiveButton(getString(android.R.string.ok), null).show()
+                            binding.progressIndicator.hide()
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.nowPlayingMovies.collect { response ->
+                        response.onLoading {
+                            binding.progressIndicator.show()
+                        }.onSuccess {
+                            binding.progressIndicator.hide()
+                            carouselAdapter.differ.submitList(it.toMutableList())
+                        }.onError { error ->
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setMessage(error.getError(requireContext()))
+                                .setPositiveButton(getString(android.R.string.ok), null).show()
+                            binding.progressIndicator.hide()
+                        }
                     }
                 }
             }

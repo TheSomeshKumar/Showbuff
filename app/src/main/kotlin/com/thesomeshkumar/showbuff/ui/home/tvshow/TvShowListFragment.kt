@@ -17,6 +17,7 @@ import com.thesomeshkumar.showbuff.data.common.onError
 import com.thesomeshkumar.showbuff.data.common.onLoading
 import com.thesomeshkumar.showbuff.data.common.onSuccess
 import com.thesomeshkumar.showbuff.databinding.FragmentTvShowListBinding
+import com.thesomeshkumar.showbuff.ui.home.movies.CarouselAdapter
 import com.thesomeshkumar.showbuff.util.autoCleared
 import com.thesomeshkumar.showbuff.util.getError
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,19 +56,50 @@ class TvShowListFragment : Fragment() {
         }
         binding.rvTvShows.adapter = adapter
 
+        val carouselAdapter = CarouselAdapter { itemView, tvShow ->
+            val transitionExtra = FragmentNavigatorExtras(itemView to tvShow.name)
+            findNavController().navigate(
+                TvShowListFragmentDirections.actionTvShowToDetail(
+                    backdropImageUrl = tvShow.backdropPath,
+                    name = tvShow.name,
+                    overview = tvShow.overview
+                ),
+                transitionExtra
+            )
+        }
+        binding.rvCarousel.adapter = carouselAdapter
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.resultTvShow.collect { response ->
-                    response.onLoading {
-                        binding.progressIndicator.show()
-                    }.onSuccess {
-                        binding.progressIndicator.hide()
-                        adapter.differ.submitList(it)
-                    }.onError { error ->
-                        MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(error.getError(requireContext()))
-                            .setPositiveButton(getString(android.R.string.ok), null).show()
-                        binding.progressIndicator.hide()
+                launch {
+                    viewModel.resultPopularTvShow.collect { response ->
+                        response.onLoading {
+                            binding.progressIndicator.show()
+                        }.onSuccess {
+                            binding.progressIndicator.hide()
+                            adapter.differ.submitList(it)
+                        }.onError { error ->
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setMessage(error.getError(requireContext()))
+                                .setPositiveButton(getString(android.R.string.ok), null).show()
+                            binding.progressIndicator.hide()
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.airingTodayTvShows.collect { response ->
+                        response.onLoading {
+                            binding.progressIndicator.show()
+                        }.onSuccess {
+                            binding.progressIndicator.hide()
+                            carouselAdapter.differ.submitList(it.toMutableList())
+                        }.onError { error ->
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setMessage(error.getError(requireContext()))
+                                .setPositiveButton(getString(android.R.string.ok), null).show()
+                            binding.progressIndicator.hide()
+                        }
                     }
                 }
             }

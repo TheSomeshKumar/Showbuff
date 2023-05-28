@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.thesomeshkumar.showbuff.databinding.RowMovieBinding
-import com.thesomeshkumar.showbuff.ui.models.MovieUI
+import com.thesomeshkumar.showbuff.ui.models.HomeMediaUI
 import com.thesomeshkumar.showbuff.util.toFullPosterUrl
 
 class MoviesAdapter(
-    private val itemClick: (View, MovieUI) -> Unit
+    private val itemClick: (View, HomeMediaUI) -> Unit
 ) : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -27,9 +27,9 @@ class MoviesAdapter(
 
     class MoviesViewHolder(
         private val binding: RowMovieBinding,
-        val itemClick: (View, MovieUI) -> Unit
+        val itemClick: (View, HomeMediaUI) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bindView(item: MovieUI) {
+        fun bindView(item: HomeMediaUI) {
             with(item) {
                 Glide.with(binding.ivThumb)
                     .load(backdropPath.toFullPosterUrl())
@@ -41,12 +41,12 @@ class MoviesAdapter(
         }
     }
 
-    private val differCallback = object : DiffUtil.ItemCallback<MovieUI>() {
-        override fun areItemsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean {
+    private val differCallback = object : DiffUtil.ItemCallback<HomeMediaUI>() {
+        override fun areItemsTheSame(oldItem: HomeMediaUI, newItem: HomeMediaUI): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean {
+        override fun areContentsTheSame(oldItem: HomeMediaUI, newItem: HomeMediaUI): Boolean {
             return oldItem == newItem
         }
     }

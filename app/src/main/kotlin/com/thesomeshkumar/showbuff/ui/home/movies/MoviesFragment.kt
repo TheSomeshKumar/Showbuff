@@ -39,8 +39,8 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        postponeEnterTransition()
-//        view.doOnPreDraw { startPostponedEnterTransition() }
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
 
         val adapter = MoviesAdapter { itemView, movie ->
             val transitionExtra = FragmentNavigatorExtras(itemView to movie.name)

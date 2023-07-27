@@ -1,4 +1,4 @@
-package com.thesomeshkumar.showbuff.ui.home.tvshow
+package com.thesomeshkumar.showbuff.ui.home.movies
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,34 +7,34 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.thesomeshkumar.showbuff.databinding.RowTvShowBinding
+import com.thesomeshkumar.showbuff.databinding.RowCarouselBinding
 import com.thesomeshkumar.showbuff.ui.models.HomeMediaUI
 import com.thesomeshkumar.showbuff.util.toFullPosterUrl
 
-class TvShowListAdapter(
+class CarouselAdapter(
     private val itemClick: (View, HomeMediaUI) -> Unit
-) : RecyclerView.Adapter<TvShowListAdapter.TvShowListViewHolder>() {
+) : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowListViewHolder {
-        val binding = RowTvShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TvShowListViewHolder(binding, itemClick)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarouselViewHolder {
+        val binding = RowCarouselBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CarouselViewHolder(binding, itemClick)
     }
 
-    override fun onBindViewHolder(holder: TvShowListViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: CarouselViewHolder, position: Int) =
         holder.bindView(differ.currentList[position])
 
     override fun getItemCount(): Int = differ.currentList.size
 
-    class TvShowListViewHolder(
-        private val binding: RowTvShowBinding,
+    class CarouselViewHolder(
+        private val binding: RowCarouselBinding,
         val itemClick: (View, HomeMediaUI) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: HomeMediaUI) {
             with(item) {
-                Glide.with(binding.ivThumb)
+                Glide.with(binding.ivCarousel)
                     .load(backdropPath.toFullPosterUrl())
-                    .into(binding.ivThumb)
-                binding.tvName.text = name
+                    .into(binding.ivCarousel)
+                binding.tvTitle.text = name
                 binding.root.transitionName = name
                 binding.root.setOnClickListener { itemClick(binding.root, this) }
             }

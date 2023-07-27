@@ -8,5 +8,9 @@
     <string name="error_server_unexpected_message">Oops! Something went wrong on the server. We are working on it.</string>
     <string name="error_timeout_message">Looks like the server is taking to long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while</string>
     <string name="error_network">Oops! Something went wrong on the server. We are working on it.</string>
+    <string name="now_playing">Movie Playing in Cinemas</string>
+    <string name="airing_today">Tv Show\'s Airing Today</string>
+    <string name="top_movies">Top Movies</string>
+    <string name="top_tv_show">Top Tv Show</string>
 
 </resources>

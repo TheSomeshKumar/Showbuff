@@ -28,7 +28,14 @@ class ShowbuffRepository @Inject constructor(
             remoteDataSource.getAiringTodayTvShows().run {
                 when (this) {
                     is Result.Loading -> emit(Result.Loading)
-                    is Result.Success -> emit(Result.Success(response.results.map { it.mapToUI() }))
+                    is Result.Success -> emit(
+                        Result.Success(
+                            response.results
+                                .map { it.mapToUI() }
+                                .shuffled()
+                        )
+                    )
+
                     is Result.Error -> emit(Result.Error(exception))
                 }
             }
@@ -52,7 +59,14 @@ class ShowbuffRepository @Inject constructor(
             remoteDataSource.getNowPlayingMovies().run {
                 when (this) {
                     is Result.Loading -> emit(Result.Loading)
-                    is Result.Success -> emit(Result.Success(response.results.map { it.mapToUI() }))
+                    is Result.Success -> emit(
+                        Result.Success(
+                            response.results
+                                .map { it.mapToUI() }
+                                .shuffled()
+                        )
+                    )
+
                     is Result.Error -> emit(Result.Error(exception))
                 }
             }

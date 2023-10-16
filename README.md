@@ -3,6 +3,8 @@
 Playground project based
 on [Recommended app architecture](https://developer.android.com/jetpack/guide)
 
+The user interface (UI) of this application is constructed using XML. To explore a similar project that utilizes Jetpack Compose with the recommended architecture approach, you can check out [Flixplorer](https://github.com/TheSomeshKumar/Flixplorer) project
+
 Powered by
 
 <img width="260" alt="TMDB Logo" src="https://user-images.githubusercontent.com/13759258/213716452-837c217d-49ac-442c-b7eb-5f1a76dff614.png">
@@ -19,7 +21,7 @@ Powered by
 - [Hilt](https://dagger.dev/hilt/) - Dependency Injection framework
 - [View Binding](https://developer.android.com/topic/libraries/view-binding) - View Binding
 - [Retrofit](https://github.com/square/retrofit) - Network client
-- [Material You](https://m3.material.io) & [Material Motion](https://m2.material.io/develop/android/theming/motion)  - Material Design
+- [Material You](https://m3.material.io) & [Material Motion](https://m2.material.io/develop/android/theming/motion)  - with XML
 
 ## Work In Progress 🚧
 
@@ -29,8 +31,6 @@ Powered by
 - ~~Use Material Theme 3 (
   MaterialYou)~~  [Done](https://github.com/TheSomeshKumar/Showbuff/commit/7e2314fe575e400f7390fb4d15ad43e1ef0039ff)
   ✅
-- Paging 3
-- Tests
 
 ## Screenshot 📱
 
